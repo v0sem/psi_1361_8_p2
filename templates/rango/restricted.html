@@ -1,0 +1,19 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Restricted
+{% endblock %}
+
+{% block body_block %}
+    <h1>Hello {{ user.username }}</h1><br />
+    <p>You are here because you are logged in.</p><br />
+    {% if profile.website %}
+        <h2>Website:</h2><br />
+        <p>{{ user.website }}</p><br />
+    {% endif %}
+    {% if profile.picture %}
+        <h2>Image</h2>
+        <img src="{{ MEDIA_URL }}{{ user.picture }}" alt="A profile picture">
+    {% endif %}
+{% endblock %}
